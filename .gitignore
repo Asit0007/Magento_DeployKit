@@ -2,7 +2,7 @@
 00-vars.sh
 cleanup.sh
 diagnose.sh
-initial-setup.sh
+initialsetup.sh
 setup.sh
 ValidationTill5.sh
 
@@ -12,5 +12,5 @@ ValidationTill5.sh
 commands.txt
 copy.txt
 logs.txt
-magento_projject_summary.txt
+magento_project_summary.txt
 sample.txt
