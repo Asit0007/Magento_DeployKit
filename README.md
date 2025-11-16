@@ -43,8 +43,8 @@ An automated deployment toolset for a Magento 2 eCommerce site. The stack includ
 ---
 
 ## Files & project structure
-
-magento-fasttrack-deploy/
+```
+Magento_DeployKit/
 ├── README.md
 ├── 01-System-Prep.sh
 ├── 02-PHP-MySQL-Installation.sh
@@ -55,9 +55,10 @@ magento-fasttrack-deploy/
 ├── 07-Final-Config-Checks.sh
 ├── nginx/
 │ └── test.mgt.com.conf
-└── common-errors/
-└── common-errors.md
+├── common-errors/
+│ └── common-errors.md
 
+```
 ---
 
 ## Usage (recommended flow)
