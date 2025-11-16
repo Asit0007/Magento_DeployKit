@@ -1,0 +1,16 @@
+# Bash scripts
+00-vars.sh
+cleanup.sh
+diagnose.sh
+initial-setup.sh
+setup.sh
+ValidationTill5.sh
+
+
+# Not necessary for the project
+03.1_chatgpt_sol
+commands.txt
+copy.txt
+logs.txt
+magento_projject_summary.txt
+sample.txt

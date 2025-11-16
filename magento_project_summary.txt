@@ -1,0 +1,91 @@
+
+========================
+Magento 2 Project - Server & Credentials Summary
+========================
+
+1. SERVER ACCESS
+----------------
+- Provider: DigitalOcean (Debian 12 droplet)
+- Hostname: debian-s-2vcpu-4gb-blr1-01
+- Public IP: <YOUR_DROPLET_IP>
+- SSH User for Magento: test-ssh
+- SSH Group: clp
+- SSH Root Access: root (use only when needed)
+
+2. WEB SERVER (NGINX)
+---------------------
+- Main Site Domain: https://test.mgt.com
+- Admin Panel: https://test.mgt.com/admin
+- PHPMyAdmin: https://pma.mgt.com
+
+- SSL Certificates:
+  - /etc/ssl/test.mgt.com/fullchain.pem
+  - /etc/ssl/test.mgt.com/privkey.pem
+
+- PHP-FPM Pool:
+  - Config: /etc/php/8.3/fpm/pool.d/test-ssh.conf
+  - Socket: /run/php/php8.3-fpm-magento.sock
+
+3. PHP & MYSQL
+--------------
+- PHP Version: 8.3
+- MySQL Version: 8.x
+
+- Database: magento
+- DB User: magento
+- DB Password: <MAGENTO_DB_PASSWORD>
+
+- Root MySQL User: root
+- Root MySQL Password: StrongPassword@2025Y
+
+4. MAGENTO ADMIN
+----------------
+- Admin URL: https://test.mgt.com/admin
+- Admin Username: admin
+- Admin Password: Admin@123
+- Admin Email: asitminz007@gmail.com
+
+5. SERVICES
+-----------
+- Redis:
+  - Cache + Session storage
+  - Host: 127.0.0.1:6379
+
+- Elasticsearch:
+  - Catalog search & indexing
+  - Host: 127.0.0.1:9200
+
+- Varnish:
+  - Full-page cache
+  - Port: 6081 (default)
+
+6. FILE SYSTEM / PERMISSIONS
+----------------------------
+- Magento Root: /var/www/magento
+- Magento Pub Root: /var/www/magento/pub
+- File Ownership: test-ssh:clp
+
+- Writable Directories:
+  - /var/www/magento/generated/
+  - /var/www/magento/var/
+  - /var/www/magento/pub/static/
+  - /var/www/magento/pub/media/
+
+7. LOGS
+-------
+- Magento Logs:
+  - /var/www/magento/var/log/system.log
+  - /var/www/magento/var/log/exception.log
+
+- Nginx Logs:
+  - /var/log/nginx/test.mgt.com.access.log
+  - /var/log/nginx/test.mgt.com.error.log
+
+- PHP-FPM Logs:
+  - journalctl -u php8.3-fpm -n 200
+
+========================
+⚠️ SECURITY NOTE:
+Do NOT commit real passwords/keys to GitHub.
+Use placeholders like <MAGENTO_DB_PASSWORD> or store secrets in 00-vars.sh or .env (gitignored).
+========================
