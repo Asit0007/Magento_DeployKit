@@ -1,0 +1,199 @@
+<svg viewBox="0 0 960 720" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f1724;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2744;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ea580c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e3a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#162d4a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="nginxGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#064e3b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="phpGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#4c1d95;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b0764;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dbGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c2d12;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6c1d09;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cacheGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#164e63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0e3d50;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#f97316"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#60a5fa"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrowGray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="720" fill="url(#bgGrad)" rx="12"/>
+  
+  <!-- Title bar -->
+  <rect x="0" y="0" width="960" height="52" fill="url(#headerGrad)" rx="12"/>
+  <rect x="0" y="40" width="960" height="12" fill="url(#headerGrad)"/>
+  <text x="480" y="33" text-anchor="middle" font-size="20" font-weight="700" fill="white" letter-spacing="1">Magento 2 — Server Architecture (Debian 12)</text>
+
+  <!-- ===== LAYER LABELS ===== -->
+  <text x="22" y="110" font-size="10" fill="#94a3b8" font-weight="600" letter-spacing="2" text-transform="uppercase">CLIENT</text>
+  <text x="22" y="230" font-size="10" fill="#94a3b8" font-weight="600" letter-spacing="2">EDGE / CACHE</text>
+  <text x="22" y="350" font-size="10" fill="#94a3b8" font-weight="600" letter-spacing="2">WEB SERVER</text>
+  <text x="22" y="470" font-size="10" fill="#94a3b8" font-weight="600" letter-spacing="2">APP RUNTIME</text>
+  <text x="22" y="590" font-size="10" fill="#94a3b8" font-weight="600" letter-spacing="2">DATA / SERVICES</text>
+
+  <!-- ===== LAYER DIVIDERS ===== -->
+  <line x1="100" y1="120" x2="940" y2="120" stroke="#2d3f5f" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="100" y1="240" x2="940" y2="240" stroke="#2d3f5f" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="100" y1="360" x2="940" y2="360" stroke="#2d3f5f" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="100" y1="480" x2="940" y2="480" stroke="#2d3f5f" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- ===== CLIENT LAYER ===== -->
+  <!-- Browser -->
+  <rect x="390" y="68" width="180" height="46" rx="8" fill="url(#clientGrad)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="480" y="87" text-anchor="middle" font-size="13" font-weight="700" fill="#93c5fd">🌐 Browser / Client</text>
+  <text x="480" y="104" text-anchor="middle" font-size="10" fill="#64748b">HTTPS :443 / HTTP :80</text>
+
+  <!-- ===== EDGE LAYER ===== -->
+  <!-- SSL Termination -->
+  <rect x="200" y="148" width="160" height="80" rx="8" fill="#1a2a42" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="280" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#fbbf24">🔒 SSL / HTTPS</text>
+  <text x="280" y="188" text-anchor="middle" font-size="10" fill="#94a3b8">Self-signed cert</text>
+  <text x="280" y="204" text-anchor="middle" font-size="10" fill="#94a3b8">/etc/ssl/magento/</text>
+  <text x="280" y="220" text-anchor="middle" font-size="9" fill="#64748b">Port 443</text>
+
+  <!-- Varnish -->
+  <rect x="600" y="148" width="160" height="80" rx="8" fill="#1c2f1c" stroke="#4ade80" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="680" y="170" text-anchor="middle" font-size="12" font-weight="700" fill="#86efac">⚡ Varnish Cache</text>
+  <text x="680" y="188" text-anchor="middle" font-size="10" fill="#94a3b8">Full-page cache</text>
+  <text x="680" y="204" text-anchor="middle" font-size="10" fill="#94a3b8">VCL 4.0</text>
+  <text x="680" y="220" text-anchor="middle" font-size="9" fill="#64748b">Port 80 → 8080</text>
+
+  <!-- ===== WEB SERVER LAYER ===== -->
+  <!-- NGINX -->
+  <rect x="360" y="268" width="240" height="80" rx="8" fill="url(#nginxGrad)" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="480" y="290" text-anchor="middle" font-size="13" font-weight="700" fill="#6ee7b7">🌿 NGINX</text>
+  <text x="480" y="308" text-anchor="middle" font-size="10" fill="#94a3b8">sites-available/magento.conf</text>
+  <text x="480" y="324" text-anchor="middle" font-size="10" fill="#94a3b8">sites-available/pma.conf</text>
+  <text x="480" y="340" text-anchor="middle" font-size="9" fill="#64748b">Port 8080 (backend) · Port 443 (SSL)</text>
+
+  <!-- ===== APP RUNTIME LAYER ===== -->
+  <!-- PHP-FPM -->
+  <rect x="200" y="388" width="170" height="80" rx="8" fill="url(#phpGrad)" stroke="#a78bfa" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="285" y="410" text-anchor="middle" font-size="12" font-weight="700" fill="#c4b5fd">🐘 PHP 8.2-FPM</text>
+  <text x="285" y="428" text-anchor="middle" font-size="10" fill="#94a3b8">Magento 2 app</text>
+  <text x="285" y="444" text-anchor="middle" font-size="10" fill="#94a3b8">OPcache enabled</text>
+  <text x="285" y="460" text-anchor="middle" font-size="9" fill="#64748b">Socket: php8.3-fpm-magento.sock</text>
+
+  <!-- Magento Core -->
+  <rect x="400" y="388" width="160" height="80" rx="8" fill="#2d1f54" stroke="#818cf8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="480" y="410" text-anchor="middle" font-size="12" font-weight="700" fill="#a5b4fc">🛒 Magento 2</text>
+  <text x="480" y="428" text-anchor="middle" font-size="10" fill="#94a3b8">Core app</text>
+  <text x="480" y="444" text-anchor="middle" font-size="10" fill="#94a3b8">/var/www/magento</text>
+  <text x="480" y="460" text-anchor="middle" font-size="9" fill="#64748b">Owner: test-ssh:clp</text>
+
+  <!-- phpMyAdmin -->
+  <rect x="590" y="388" width="155" height="80" rx="8" fill="#1f2937" stroke="#6b7280" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="668" y="410" text-anchor="middle" font-size="12" font-weight="700" fill="#d1d5db">🗄️ phpMyAdmin</text>
+  <text x="668" y="428" text-anchor="middle" font-size="10" fill="#94a3b8">DB management UI</text>
+  <text x="668" y="444" text-anchor="middle" font-size="10" fill="#94a3b8">pma.mgt.com</text>
+  <text x="668" y="460" text-anchor="middle" font-size="9" fill="#64748b">/var/www/pma</text>
+
+  <!-- ===== DATA LAYER ===== -->
+  <!-- MySQL -->
+  <rect x="120" y="508" width="155" height="80" rx="8" fill="url(#dbGrad)" stroke="#f87171" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="198" y="530" text-anchor="middle" font-size="12" font-weight="700" fill="#fca5a5">🐬 MySQL 8.0</text>
+  <text x="198" y="548" text-anchor="middle" font-size="10" fill="#94a3b8">DB: magento</text>
+  <text x="198" y="564" text-anchor="middle" font-size="10" fill="#94a3b8">User: magentser</text>
+  <text x="198" y="580" text-anchor="middle" font-size="9" fill="#64748b">Port 3306 · localhost</text>
+
+  <!-- Elasticsearch -->
+  <rect x="310" y="508" width="165" height="80" rx="8" fill="#1c2f3c" stroke="#38bdf8" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="393" y="530" text-anchor="middle" font-size="12" font-weight="700" fill="#7dd3fc">🔍 Elasticsearch</text>
+  <text x="393" y="548" text-anchor="middle" font-size="10" fill="#94a3b8">Version 7.x</text>
+  <text x="393" y="564" text-anchor="middle" font-size="10" fill="#94a3b8">Catalog search</text>
+  <text x="393" y="580" text-anchor="middle" font-size="9" fill="#64748b">Port 9200 · localhost</text>
+
+  <!-- Redis -->
+  <rect x="510" y="508" width="155" height="80" rx="8" fill="url(#cacheGrad)" stroke="#22d3ee" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="588" y="530" text-anchor="middle" font-size="12" font-weight="700" fill="#67e8f9">🔄 Redis</text>
+  <text x="588" y="548" text-anchor="middle" font-size="10" fill="#94a3b8">Sessions + Cache</text>
+  <text x="588" y="564" text-anchor="middle" font-size="10" fill="#94a3b8">In-memory store</text>
+  <text x="588" y="580" text-anchor="middle" font-size="9" fill="#64748b">Port 6379 · localhost</text>
+
+  <!-- Filesystem -->
+  <rect x="700" y="508" width="160" height="80" rx="8" fill="#1f2937" stroke="#6b7280" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="780" y="530" text-anchor="middle" font-size="12" font-weight="700" fill="#9ca3af">📁 Filesystem</text>
+  <text x="780" y="548" text-anchor="middle" font-size="10" fill="#94a3b8">var/ pub/static/</text>
+  <text x="780" y="564" text-anchor="middle" font-size="10" fill="#94a3b8">pub/media/ app/etc/</text>
+  <text x="780" y="580" text-anchor="middle" font-size="9" fill="#64748b">Perms: 2755/644</text>
+
+  <!-- ===== ARROWS ===== -->
+  <!-- Client → SSL -->
+  <line x1="430" y1="114" x2="318" y2="148" stroke="#f97316" stroke-width="1.8" marker-end="url(#arrowOrange)"/>
+  <!-- Client → Varnish -->
+  <line x1="530" y1="114" x2="641" y2="148" stroke="#f97316" stroke-width="1.8" marker-end="url(#arrowOrange)"/>
+
+  <!-- SSL → NGINX -->
+  <line x1="280" y1="228" x2="400" y2="268" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <!-- Varnish → NGINX -->
+  <line x1="680" y1="228" x2="570" y2="268" stroke="#34d399" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowGreen)"/>
+
+  <!-- NGINX → PHP-FPM -->
+  <line x1="400" y1="348" x2="330" y2="388" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <!-- NGINX → phpMyAdmin -->
+  <line x1="560" y1="348" x2="630" y2="388" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- PHP-FPM → Magento -->
+  <line x1="370" y1="428" x2="400" y2="428" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- Magento → MySQL -->
+  <line x1="450" y1="468" x2="260" y2="508" stroke="#f87171" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+  <!-- Magento → Elasticsearch -->
+  <line x1="470" y1="468" x2="430" y2="508" stroke="#38bdf8" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+  <!-- Magento → Redis -->
+  <line x1="510" y1="468" x2="565" y2="508" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+  <!-- Magento → Filesystem -->
+  <line x1="540" y1="468" x2="720" y2="508" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrowGray)"/>
+
+  <!-- phpMyAdmin → MySQL -->
+  <line x1="640" y1="468" x2="273" y2="508" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrowGray)"/>
+
+  <!-- ===== LEGEND ===== -->
+  <rect x="110" y="636" width="740" height="60" rx="8" fill="#111827" stroke="#2d3f5f" stroke-width="1"/>
+  <text x="480" y="655" text-anchor="middle" font-size="10" fill="#64748b" font-weight="600" letter-spacing="1">LEGEND</text>
+  
+  <line x1="140" y1="670" x2="180" y2="670" stroke="#f97316" stroke-width="2" marker-end="url(#arrowOrange)"/>
+  <text x="190" y="674" font-size="10" fill="#94a3b8">HTTPS request</text>
+  
+  <line x1="310" y1="670" x2="350" y2="670" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowBlue)"/>
+  <text x="360" y="674" font-size="10" fill="#94a3b8">Proxy pass</text>
+  
+  <line x1="460" y1="670" x2="500" y2="670" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowBlue)"/>
+  <text x="510" y="674" font-size="10" fill="#94a3b8">FastCGI (FPM socket)</text>
+  
+  <line x1="660" y1="670" x2="700" y2="670" stroke="#6b7280" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arrowGray)"/>
+  <text x="710" y="674" font-size="10" fill="#94a3b8">Internal DB / data</text>
+
+  <!-- Server box label -->
+  <rect x="100" y="60" width="840" height="568" rx="6" fill="none" stroke="#1e3a5f" stroke-width="1" stroke-dasharray="6,4"/>
+  <text x="118" y="77" font-size="9" fill="#2d4a7a" font-weight="600">DEBIAN 12 SERVER · test.mgt.com</text>
+</svg>
